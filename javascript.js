@@ -26,40 +26,49 @@ var used3 = [];
 var startTime = Date.now();
 console.log(startTime);
 
-    
+function inner_helper(questions_list, used_list) {
+    randomNumber = Math.floor(Math.random() * (questions_list.length))
+        while (used_list.includes(randomNumber)) {
+            randomNumber = Math.floor(Math.random() * (questions_list.length))
+        }
+        document.getElementById('question').innerHTML = questions_list[randomNumber];
+        used_list.push(randomNumber);
+
+}
+
 function nextQuestion() {
     var timeElapsed = Date.now() - startTime;
     console.log(timeElapsed)
 
     if (timeElapsed < 10000 && used1.length !== questions1.length) {
-
-        randomNumber = Math.floor(Math.random() * (questions1.length))
-        while (used1.includes(randomNumber)) {
-            randomNumber = Math.floor(Math.random() * (questions1.length))
-        }
-        document.getElementById('question').innerHTML = questions1[randomNumber];
-        used1.push(randomNumber);
+        return inner_helper(questions1, used1)
+        // randomNumber = Math.floor(Math.random() * (questions1.length))
+        // while (used1.includes(randomNumber)) {
+        //     randomNumber = Math.floor(Math.random() * (questions1.length))
+        // }
+        // document.getElementById('question').innerHTML = questions1[randomNumber];
+        // used1.push(randomNumber);
         console.log(used1);
 
     } else if (timeElapsed < 15000 && used2.length !== questions2.length) {
-
-        randomNumber = Math.floor(Math.random() * (questions2.length))
-        while (used2.includes(randomNumber)) {
-            randomNumber = Math.floor(Math.random() * (questions2.length))
-        }
-        document.getElementById('question').innerHTML = questions2[randomNumber];
-        used2.push(randomNumber);
-        console.log(used2);
+        return inner_helper(questions2, used2)
+        // randomNumber = Math.floor(Math.random() * (questions2.length))
+        // while (used2.includes(randomNumber)) {
+        //     randomNumber = Math.floor(Math.random() * (questions2.length))
+        // }
+        // document.getElementById('question').innerHTML = questions2[randomNumber];
+        // used2.push(randomNumber);
+        // console.log(used2);
         
     } else if (timeElapsed < 25000 && used3.length !== questions3.length) {
-
-        randomNumber = Math.floor(Math.random() * (questions3.length))
-        while (used3.includes(randomNumber)) {
-            randomNumber = Math.floor(Math.random() * (questions3.length))
-        }
-        document.getElementById('question').innerHTML = questions3[randomNumber];
-        used3.push(randomNumber);
-        console.log(used3);
+        return inner_helper(questions3, used3)
+        // randomNumber = Math.floor(Math.random() * (questions3.length))
+        // while (used3.includes(randomNumber)) {
+        //     randomNumber = Math.floor(Math.random() * (questions3.length))
+        // }
+        // document.getElementById('question').innerHTML = questions3[randomNumber];
+        // used3.push(randomNumber);
+        // console.log(used3);
     }
     else {
         document.getElementById('question').innerHTML = "lookatmyeyes";
